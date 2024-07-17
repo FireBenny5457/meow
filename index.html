@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hewow</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">Loading...</div>
+    <script>
+        async function getCountryCode() {
+            try {
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                return data.country_code;
+            } catch (error) {
+                console.error('Error fetching the IP data:', error);
+                return null;
+            }
+        }
+        // Reading my code huh? How about this, Context is that this guy prisma ignored me for over 3 months and destroyed my heart. He even ghosted me during a funeral. So yeah, Fuck you Leon
+        async function displayMessage() {
+            const countryCode = await getCountryCode();
+            const messageElement = document.getElementById('message');
+            if (countryCode === 'UA') {
+                messageElement.textContent = 'Oh.. Its you... I dont like you anymore prisma... Leave....';
+            } else {
+                messageElement.textContent = 'You are good :3';
+            }
+        }
+
+        displayMessage();
+    </script>
+</body>
+</html>
