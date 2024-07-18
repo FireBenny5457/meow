@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hewow</title>
     <style>
+        <h1>
+        You gonna look at my website and not text me dummy?
+        </h1>
         body {
             display: flex;
             justify-content: center;
@@ -15,31 +18,5 @@
         }
     </style>
 </head>
-<body>
-    <div id="message">Loading...</div>
-    <script>
-        async function getCountryCode() {
-            try {
-                const response = await fetch('https://ipapi.co/json/');
-                const data = await response.json();
-                return data.country_code;
-            } catch (error) {
-                console.error('Error fetching the IP data:', error);
-                return null;
-            }
-        }
-        // Reading my code huh? 
-        async function displayMessage() {
-            const countryCode = await getCountryCode();
-            const messageElement = document.getElementById('message');
-            if (countryCode === 'SE') {
-                messageElement.textContent = 'Oh.. You look at my website and still ignore me?... a classic leon..';
-            } else {
-                messageElement.textContent = 'Meow <3';
-            }
-        }
-
-        displayMessage();
-    </script>
 </body>
 </html>
